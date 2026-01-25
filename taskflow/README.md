@@ -1,0 +1,1 @@
+#### crea, estructura y planifica el proyecto en 5 dias, dentro del archivo architecture.md que se encuentra en la carpeta docs.
