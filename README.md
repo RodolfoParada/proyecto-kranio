@@ -16,6 +16,7 @@ Este proyecto forma parte de una práctica enfocada en **arquitectura frontend, 
 - ESLint
 
 ##### Estructura del proyecto
+```
 src/
 ├─ pages/
 │  ├─ _app.tsx
@@ -31,6 +32,7 @@ src/
 │  └─ authStore.ts
 └─ styles/
    └─ globals.css
+```
 
 #### Autenticación
 La aplicación implementa una **autenticación simulada (fake auth)** usando Zustand.
