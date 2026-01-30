@@ -63,3 +63,99 @@ npm install
 ```levanta el proyecto
    npm run build
 ```   
+
+#### Backend
+##### Tecnologías utilizadas
+- Node.js
+- TypeScript
+- Express
+- Prisma
+- JWT
+- bcript
+- Testing
+
+##### Estructura del proyecto
+```
+backend/
+├── src/
+│   ├── config/             # Configuración de base de datos (Prisma) y variables globales
+│   │   ├──database.ts
+│   │   └── env.ts 
+│   ├── controllers/        # Manejadores de peticiones HTTP (req, res)
+│   │   ├── authController.ts
+│   │   └── projectController.ts
+│   ├── middleware/         # Validaciones de JWT y manejo de errores
+│   │   └── auth.ts
+│   ├── models/         # no lo uso
+│   │   └── index.ts
+│   ├── routes/             # Definición de endpoints y prefijos de ruta
+│   │   ├── auth.ts
+│   │   └── projects.ts  
+│   ├── services/           # Lógica de negocio e interacción directa con Prisma
+│   │   ├── authService.ts
+│   │   └── projectService.ts
+│   ├── utils/              # Funciones de ayuda (JWT, hash de contraseñas)
+│   │   └── jwt.ts
+│   ├── validators/         # Esquemas de validación (Joi o Zod)
+│   │   └── authValidators.ts
+│   │   └── projectValidators.ts
+│   ├── app.ts              # Configuración de Express (sin el listen)
+│   └── index.ts            # Punto de entrada y arranque del servidor
+├── tests/
+│   └── integration/        # Pruebas de integración (Jest + Supertest)
+│       ├── auth.test.ts
+│       └── projects.test.ts
+├── prisma/                 # Esquema de la base de datos y migraciones
+│   ├── schema.prisma
+│   └── migrations/
+│   └── prisma/
+├── .env                    # Variables sensibles (No subir a Git)
+├── .env.test                   
+├── .gitignore              # Archivos excluidos de Git
+├── jest.config.js          # Configuración de los tests
+├── package-lock.json            
+├── package.json            # Scripts y dependencias
+└── tsconfig.json           # Configuración de TypeScript
+
+```
+
+#### Autenticación
+La API implementa autenticación real basada en JWT.
+- Registro e inicio de sesión de usuarios
+- Contraseñas protegidas mediante hashing
+- Generación y validación de tokens JWT
+- Middleware que protege rutas privadas y valida la sesión del usuario
+
+#### Gestión de Proyectos
+El backend expone endpoints REST para la administración de proyectos asociados a un usuario.
+- Creación, lectura, actualización y eliminación de proyectos (CRUD)
+- Control de acceso: cada usuario solo puede acceder a sus propios proyectos
+- Validación de existencia y propiedad de los recursos
+
+#### Aquirtectura
+La aplicación sigue una arquitectura modular y escalable.
+- Separación clara entre controllers, services y middlewares
+- Lógica de negocio aislada del manejo HTTP
+- Uso de Prisma como capa de acceso a datos
+
+#### Testing
+Se implementan tests de integración para validar el comportamiento real del proyecto.
+- Pruebas de autenticación (register / login)
+- Pruebas de rutas protegidas
+- Limpieza de base de datos entre tests
+- Uso de Jest y Supertest
+
+#### Ejecución del proyecto
+#### en la carpeta backend (cd backend) ejecutar
+Instalar dependencias:
+```bash
+npm install
+```
+
+```levanta el proyecto
+   npm run dev
+```   
+
+```visualiza el testing
+   npm test
+```   
