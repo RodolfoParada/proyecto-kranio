@@ -159,3 +159,30 @@ npm install
 ```visualiza el testing
    npm test
 ```   
+
+
+#### Integración 
+
+##### cypress instalación global
+```
+npm install -g cypress
+```
+##### se levanta cypress
+```
+npx cypress open
+```
+
+##### cd frontend instalar
+```
+npm install axios
+```
+```
+mkdir cypress/fixtures cypress/integration
+```
+
+##### cd backend instalar
+```
+npm install supertest
+```
+
+
