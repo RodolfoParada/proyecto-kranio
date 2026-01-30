@@ -185,4 +185,40 @@ mkdir cypress/fixtures cypress/integration
 npm install supertest
 ```
 
+#### levantar el backend y el frontend
+```
+npm run dev
+```
+
+#### endopoints que muestran la comunicación del backend al frontend
+```
+http://localhost:4000/api
+```
+```
+http://localhost:4000/api/auth
+```
+```
+http://localhost:4000/api/projects
+```
+
+#### instalación clonar el proyecto
+#### cd backend instalar
+    ```
+    npm install
+    ```
+#### levantar el backend
+```
+npm run dev
+```    
+#### cd frontend instalar
+    ```
+    npm install
+    ```
+#### levantar el frontend
+```
+npm run dev
+```    
+#### se debe lebantar el backend y luego el frontend para probar los endpoits.
+
+
 
