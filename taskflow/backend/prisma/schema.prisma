@@ -11,15 +11,12 @@ model User {
   id       String    @id @default(uuid())
   email    String    @unique
   password String
-  name     String
-  projects Project[] // Relación inversa
+  projects Project[]
 }
 
 model Project {
-  id          String   @id @default(uuid())
-  name        String
-  description String?
-  userId      String   // Clave foránea
-  user        User     @relation(fields: [userId], references: [id])
-  createdAt   DateTime @default(now())
+  id     String @id @default(uuid())
+  name   String
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
 }

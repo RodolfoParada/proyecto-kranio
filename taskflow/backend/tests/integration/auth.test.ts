@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '../../src/index'; 
+import app from '../../src/app'; // Importación directa
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -7,6 +7,7 @@ const prisma = new PrismaClient();
 describe('Auth API', () => {
   // Limpiamos la base de datos antes de cada test para evitar conflictos de "email duplicado"
   beforeEach(async () => {
+     await prisma.project.deleteMany();
     await prisma.user.deleteMany();
   });
 

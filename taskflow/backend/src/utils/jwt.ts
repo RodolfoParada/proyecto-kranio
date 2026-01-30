@@ -1,10 +1,15 @@
 import jwt from 'jsonwebtoken';
-import { env } from '../config/env';
 
+const JWT_SECRET = process.env.JWT_SECRET || 'ferreteria_secret_key';
 
-export const signToken = (payload: object) =>
-jwt.sign(payload, env.JWT_SECRET, { expiresIn: '1d' });
+export const generateToken = (payload: any) => {
+  return jwt.sign(payload, JWT_SECRET, { expiresIn: '24h' });
+};
 
+export const verifyToken = (token: string) => {
+  return jwt.verify(token, process.env.JWT_SECRET!) as {
+    id: string;
+    email: string;
+  };
 
-export const verifyToken = (token: string) =>
-jwt.verify(token, env.JWT_SECRET);
+};

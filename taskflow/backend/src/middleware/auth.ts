@@ -1,25 +1,31 @@
 import { Request, Response, NextFunction } from 'express';
 import { verifyToken } from '../utils/jwt';
 
-// Definimos una interfaz local para asegurar que TypeScript no se queje aquí
-interface AuthRequest extends Request {
-  user?: any;
+export interface AuthRequest extends Request {
+  user?: {
+    id: string;
+    email: string;
+  };
 }
 
 export const authenticate = (
-  req: AuthRequest, // Usamos nuestra interfaz extendida
+  req: AuthRequest,
   res: Response,
   next: NextFunction
 ) => {
-  const header = req.headers.authorization;
-  if (!header) return res.status(401).json({ error: 'Unauthorized' });
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader?.startsWith('Bearer ')) {
+    return res.status(401).json({ error: 'Token requerido' });
+  }
+
+  const token = authHeader.split(' ')[1];
 
   try {
-    const token = header.split(' ')[1];
     const decoded = verifyToken(token);
-    req.user = decoded; // Ahora sí lo reconocerá
+    req.user = decoded;
     next();
   } catch {
-    res.status(401).json({ error: 'Invalid token' });
+    return res.status(401).json({ error: 'Token inválido' });
   }
 };

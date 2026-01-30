@@ -1,21 +1,10 @@
-import express from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import authRoutes from './routes/auth';
-import projectRoutes from './routes/projects';
-
-const app = express();
-
-app.use(helmet());
-app.use(cors());
-app.use(express.json());
-
-app.use('/api/auth', authRoutes);
-app.use('/api/projects', projectRoutes);
+import app from './app';
 
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-});
 
-export default app; // Importante para los tests
+// Solo escuchamos si NO estamos testeando
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+  });
+}
