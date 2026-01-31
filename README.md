@@ -159,3 +159,66 @@ npm install
 ```visualiza el testing
    npm test
 ```   
+
+
+#### Integración 
+
+##### cypress instalación global
+```
+npm install -g cypress
+```
+##### se levanta cypress
+```
+npx cypress open
+```
+
+##### cd frontend instalar
+```
+npm install axios
+```
+```
+mkdir cypress/fixtures cypress/integration
+```
+
+##### cd backend instalar
+```
+npm install supertest
+```
+
+#### levantar el backend y el frontend
+```
+npm run dev
+```
+
+#### endopoints que muestran la comunicación del backend al frontend
+```
+http://localhost:4000/api
+```
+```
+http://localhost:4000/api/auth
+```
+```
+http://localhost:4000/api/projects
+```
+
+#### instalación clonar el proyecto
+#### cd backend instalar
+    ```
+    npm install
+    ```
+#### levantar el backend
+```
+npm run dev
+```    
+#### cd frontend instalar
+    ```
+    npm install
+    ```
+#### levantar el frontend
+```
+npm run dev
+```    
+#### se debe lebantar el backend y luego el frontend para probar los endpoits.
+
+
+
