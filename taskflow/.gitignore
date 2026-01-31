@@ -1,0 +1,18 @@
+# Dependencias
+node_modules/
+
+# Construcción
+.next/
+out/
+dist/
+build/
+
+# Variables locales (¡No subas tus secretos!)
+.env
+.env.local
+.env.production
+
+# Docker y logs
+*.log
+npm-debug.log*
+.dockerignore

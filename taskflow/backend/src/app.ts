@@ -32,5 +32,15 @@ app.get('/api/projects', (_req, res) => {
   });
 });
 
+app.get('/health', (_req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
+
+app.get('/api/health', (_req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
+app.get('/api/debug/db-status', (_req, res) => {
+  res.status(200).json({ database: 'connected (simulated)' });
+});
 
 export default app; // Supertest usará esto
