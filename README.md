@@ -221,10 +221,10 @@ npm run dev
 #### se debe lebantar el backend y luego el frontend para probar los endpoits.
 
 
-
+### Deploy
 #### Deploy del backend en el render
 
-#### en el navegador 
+#### en el navegador puede tardar unos segundos.
   ```
   https://proyecto-kranio-backend.onrender.com/api
   ```
@@ -235,3 +235,14 @@ npm run dev
   ```
 https://proyecto-kranio-backend.onrender.com/api/projects
 ```
+
+#### Deploy del frontend en vercel
+```
+https://proyecto-kranio-acs5b7xwu-rodolfoparada-projects.vercel.app/
+```
+
+#### Se realizó deploy o despliegue desde la la rama llamada feature-despliegue
+#### tanto para el backend en rendender como para el frontend en vercel
+ ```
+ https://github.com/RodolfoParada/proyecto-kranio/tree/feature-despliegue
+ ```
