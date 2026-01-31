@@ -222,3 +222,16 @@ npm run dev
 
 
 
+#### Deploy del backend en el render
+
+#### en el navegador 
+  ```
+  https://proyecto-kranio-backend.onrender.com/api
+  ```
+  ```
+  https://proyecto-kranio-backend.onrender.com/api/auth
+  ```
+#### este endpoint se visualiza con error en local no sucede
+  ```
+https://proyecto-kranio-backend.onrender.com/api/projects
+```
